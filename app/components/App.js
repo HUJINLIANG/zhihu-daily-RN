@@ -6,20 +6,36 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Navigator
 } from 'react-native';
 
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as Actions from '../actions'
-
+import NavigationBar from './navigationBar'
 
 class App extends Component {
     constructor(props){
         super(props);
-
+        this.renderScene = this.renderScene.bind(this);
     }
-
+    renderScene(route,nav){
+        let Component = route.component;
+        if(route.component){
+            return <Component {...this.props} {...route.params} navigator={nav} />
+        }
+    }
+    render(){
+        return (
+            <Navigator renderScene={this.renderScene} initialRoute={{component:Home,title:"今日速报"}} configureScene={(route) => {
+                if(route.sceneConfig){
+                    return route.sceneConfig;
+                }
+                return Navigator.SceneConfigs.FloatFromRight;
+            }} navigationBar={NavigationBar} />
+        )
+    }
 }
 
 
