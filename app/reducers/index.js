@@ -2,6 +2,7 @@
  * Created by jialao on 2016/10/10.
  */
 import {combineReducers} from 'redux'
+import moment from 'moment'
 
 const today = (state = [],action) => {
     switch(action.type){
@@ -65,6 +66,47 @@ const detail = (state = {},action) => {
             return Object.assgin({},state,action.data);
         case 'EMPTY_DETAIL':
             return {};
+        default:
+            return state;
+    }
+}
+
+const initialUIState = {
+    LoadingDate: moment().format('YYYYMMDD'),
+    isLoading: true,
+    isDialogOpen: false,
+    isDrawerOpen: false
+}
+const UIState = (state = initialUIState, action) => {
+    switch (action.type) {
+        case 'START_LOADING':
+            return Object.assign({}, state, {
+                isLoading: true
+            })
+        case 'STOP_LOADING':
+            return Object.assign({}, state, {
+                isLoading: false
+            })
+        case 'DECREMENT_DATE':
+            return Object.assign({}, state, {
+                LoadingDate: moment(state.LoadingDate).subtract(1, 'days').format('YYYYMMDD')
+            })
+        case 'OPEN_ABOUT_DIALOG':
+            return Object.assign({}, state, {
+                isDialogOpen: true
+            })
+        case 'CLOSE_ABOUT_DIALOG':
+            return Object.assign({}, state, {
+                isDialogOpen: false
+            })
+        case 'OPEN_DRAWER':
+            return Object.assign({}, state, {
+                isDrawerOpen: true
+            })
+        case 'CLOSE_DRAWER':
+            return Object.assign({}, state, {
+                isDrawerOpen: false
+            })
         default:
             return state;
     }
