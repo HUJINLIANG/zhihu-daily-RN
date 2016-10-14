@@ -28,7 +28,7 @@ class App extends Component {
     }
     render(){
         return (
-            <Navigator renderScene={this.renderScene} initialRoute={{component:Home,title:"今日速报"}} configureScene={(route) => {
+            <Navigator renderScene={this.renderScene} initialRoute={{component:Home,title:"知乎日报"}} configureScene={(route) => {
                 if(route.sceneConfig){
                     return route.sceneConfig;
                 }
