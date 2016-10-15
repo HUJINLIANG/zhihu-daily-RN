@@ -10,6 +10,7 @@ import {
     Navigator
 } from 'react-native';
 
+import Home from './home'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as Actions from '../actions'

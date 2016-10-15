@@ -15,7 +15,48 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-    
+    container:{
+        flex:1,
+        backgroundColor: '#fff',
+        marginTop: 56,
+    },
+    itemList:{
+        flex:1,
+        paddingTop:10,
+        paddingLeft:10,
+        paddingRight: 10,
+    },
+    item:{
+        borderBottomWidth: 1,
+        borderBottomColor: '##d9d9d9',
+        borderStyle:'dashed',
+        marginBottom: 17,
+        paddingBottom:17,
+        flexDirection: 'row',
+    },
+    itemLeft:{
+        flex:1,
+        height: 100,
+    },
+
+    wrapImg:{
+        width: 100,
+        alignSelf:'flex-end'
+    },
+    itemImg:{
+        width: 100,
+        height: 100,
+    },
+    itemSpan:{
+        flex:1,
+        paddingRight: 5,
+    },
+    itemTitle:{
+        fontSize: 16,
+        lineHeight: 20,
+        fontWeight: 'bold',
+        color: 'black',
+    }
 })
 
 class Row extends Component{
@@ -24,16 +65,16 @@ class Row extends Component{
         return (
             <TouchableOpacity onPress={e=>linkToDetail(e,data.id)} >
                 <View style={styles.item}>
-                    <View style={styles.articleLeft}>
+                    <View style={styles.itemLeft}>
                         
-                        <Text style={[styles.articleSpan,styles.articleTitle]} numberOfLines={1}>{data.title}</Text>
+                        <Text style={[styles.itemSpan,styles.itemTitle]} numberOfLines={1}>{data.title}</Text>
                         
                     </View>
                     {data.images.length > 0 &&
                     <View style={styles.wrapImg}>
                         <Image
                             resizeMode={'stretch'}
-                            style={styles.articleImg}
+                            style={styles.itemImg}
                             source={{uri: data.images[0]}}
                         />
                     </View>}
