@@ -13,6 +13,7 @@ import {
     Component,
     ListView,
 } from 'react-native';
+import Detail from './detail'
 
 const styles = StyleSheet.create({
     container:{
