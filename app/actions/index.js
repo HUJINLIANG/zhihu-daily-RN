@@ -2,6 +2,7 @@
  * Created by jialao on 2016/10/13.
  */
 import * as resources from '../utils/resource'
+import * as types from './ActionTypes'
 
 export const GET_LATEST_DATA = () => {
     return ( dispatch, getStore ) => {
@@ -77,95 +78,95 @@ export const GET_THEME_DATA = (id) => {
 
 export const GET_LATEST = (data) => {
     return {
-        type: 'GET_LATEST',
+        type: types.GET_LATEST,
         data
     }
 }
 
 export const GET_HISTORY = (data) => {
     return {
-        type: 'GET_HISTORY',
+        type: types.GET_HISTORY,
         data
     }
 }
 
 export const GET_DETAIL = (data) => {
     return {
-        type: 'GET_DETAIL',
+        type: types.GET_DETAIL,
         data
     }
 }
 
 export const EMPTY_DETAIL = () => {
     return {
-        type: 'EMPTY_DETAIL'
+        type: types.EMPTY_DETAIL
     }
 }
 
 export const START_LOADING = () => {
     return {
-        type: 'START_LOADING'
+        type: types.START_LOADING
     }
 }
 
 export const STOP_LOADING = () => {
     return {
-        type: 'STOP_LOADING'
+        type: types.STOP_LOADING
     }
 }
 
 export const DECREMENT_DATE = () => {
     return {
-        type: 'DECREMENT_DATE'
+        type: types.DECREMENT_DATE
     }
 }
 
 export const OPEN_ABOUT_DIALOG = () => {
     return {
-        type: 'OPEN_ABOUT_DIALOG'
+        type: types.OPEN_ABOUT_DIALOG
     }
 }
 
 export const CLOSE_ABOUT_DIALOG = () => {
     return {
-        type: 'CLOSE_ABOUT_DIALOG'
+        type: types.CLOSE_ABOUT_DIALOG
     }
 }
 
 export const OPEN_DRAWER = () => {
     return {
-        type: 'OPEN_DRAWER'
+        type: types.OPEN_DRAWER
     }
 }
 
 export const CLOSE_DRAWER = () => {
     return {
-        type: 'CLOSE_DRAWER'
+        type: types.CLOSE_DRAWER
     }
 }
 
 export const LOAD_THEMES_LIST = (list) => {
     return {
-        type: 'LOAD_THEMES_LIST',
+        type: types.LOAD_THEMES_LIST,
         list
     }
 }
 
 export const GET_THEME = (theme) => {
     return {
-        type: 'GET_THEME',
+        type: types.GET_THEME,
         theme
     }
 }
 export const GET_TODAY=(data)=>{
     return {
-        type:'GET_TODAY',
+        type:types.GET_TODAY,
         data
     }
 }
 export const GET_HOT=(data)=>{
     return{
-        type:'GET_HOT',
+        type:types.GET_HOT,
         data
     }
 }

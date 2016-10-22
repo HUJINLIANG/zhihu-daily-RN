@@ -2,6 +2,7 @@
  * Created by jialao on 2016/10/17.
  */
 import React, { Component } from 'react';
+
 import {
     Component,
     View,
@@ -13,7 +14,7 @@ import {
     Dimensions,
     ActivityIndicatorIOS
 } from 'react-native';
-import Detail './detail'
+import Detail from './detail'
 import RefreshInfiniteListView from '../utils/refreshInfinite.ios'
 
 let ds = new ListView.DataSource({
@@ -102,7 +103,7 @@ export default class Home extends Component{
                 <View style={styles.item}>
                     <View style={styles.itemLeft}>
 
-                        <Text style={[styles.itemSpan,styles.articlitemTitleeTitle]} numberOfLines={1}>{rowData.title}</Text>
+                        <Text style={[styles.itemSpan,styles.itemTitle]} numberOfLines={1}>{rowData.title}</Text>
 
                     </View>
                     {rowData.images.length > 0 &&
@@ -121,7 +122,7 @@ export default class Home extends Component{
 
     _onInfinite() {
         const ThresholdHight = 150
-        const { actions,UIState,options } = this.props
+        const { actions,UIState } = this.props
         let nativeEvent = e.nativeEvent
         let yOffset = nativeEvent.contentInset.top + nativeEvent.contentOffset.y +
             nativeEvent.layoutMeasurement.height-nativeEvent.contentSize.height;
