@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import Detail from './detail'
 import RefreshInfiniteListView from '../utils/refreshInfinite.ios'
-
+const LISTVIEW_REF = 'listview'
 let ds = new ListView.DataSource({
     rowHasChanged:(rl,r2) => r1 !== r2
 })
@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor: '#fff',
-        marginTop: 56,
+        marginTop: 56
     },
     itemList:{
         flex:1,
         paddingTop:10,
         paddingLeft:10,
-        paddingRight: 10,
+        paddingRight: 10
     },
     item:{
         borderBottomWidth: 1,
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
         borderStyle:'dashed',
         marginBottom: 17,
         paddingBottom:17,
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     itemLeft:{
         flex:1,
-        height: 100,
+        height: 100
     },
 
     wrapImg:{
@@ -52,17 +52,17 @@ const styles = StyleSheet.create({
     },
     itemImg:{
         width: 100,
-        height: 100,
+        height: 100
     },
     itemSpan:{
         flex:1,
-        paddingRight: 5,
+        paddingRight: 5
     },
     itemTitle:{
         fontSize: 16,
         lineHeight: 20,
         fontWeight: 'bold',
-        color: 'black',
+        color: 'black'
     }
 })
 
@@ -75,7 +75,7 @@ export default class Home extends Component{
         this._onInfinite = this._onInfinite.bind(this)
         this._onRefresh = this._onRefresh.bind(this)
     }
-    _handleLinkToArticle (e,aid) {
+    _handleLinkToDetail (e,aid) {
         e.preventDefault()
         const { navigator } = this.props;
         if(navigator && aid) {
@@ -98,7 +98,7 @@ export default class Home extends Component{
     _renderRow (rowData: string, sectionID: number, rowID: number) {
         return (
 
-            <TouchableOpacity onPress={e=>this._handleLinkToArticle(e,rowData._id)}>
+            <TouchableOpacity onPress={e=>this._handleLinkToDetail(e,rowData._id)}>
 
                 <View style={styles.item}>
                     <View style={styles.itemLeft}>
@@ -156,7 +156,7 @@ export default class Home extends Component{
                 <RefreshInfiniteListView
                     style={styles.itemList}
                     ref = {LISTVIEW_REF}
-                    dataSource={ds.cloneWithRows(mainList.items)}
+                    dataSource={ds.cloneWithRows(mainList)}
                     renderRow={this._renderRow}
                     onRefresh = {this._onRefresh}
                     onInfinite = {this._onInfinite}
