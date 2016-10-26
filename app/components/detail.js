@@ -13,6 +13,22 @@ import {
     Dimensions
 } from 'react-native';
 
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        marginTop:64,
+        paddingLeft: 10,
+        paddingRight:10,
+    },
+    title:{
+        marginTop:10,
+        fontSize: liFontSize * 2,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        lineHeight: 36
+    }
+})
+
 export default class Detail extends Component{
     constructor(props){
         super(props);
@@ -34,3 +50,5 @@ export default class Detail extends Component{
         )
     }
 }
+
+
